@@ -1,0 +1,5 @@
+source("Load_data.R")
+PowerS <- load_data()
+png("plot2.png", width=400, height=400)
+plot(PowerS$Time, PowerS$Global_active_power, type = "l", main = "", ylab = "Global Active Power (kilowatts)")
+dev.off()

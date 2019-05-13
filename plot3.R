@@ -1,0 +1,8 @@
+source("Load_data.R")
+PowerS <- load_data()
+png("plot3.png", width=400, height=400)
+plot(PowerS$Time, PowerS$Sub_metering_1, type = "l", main = "", ylab = "Energy Submetering", xlab ="")
+lines(PowerS$Time,PowerS$Sub_metering_2, type="l", col = "red")
+lines(PowerS$Time,PowerS$Sub_metering_3, type="l", col = "blue")
+legend("topright",col = c("black", "red", "blue"), c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty=1, lwd =2)
+dev.off()

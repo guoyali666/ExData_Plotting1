@@ -1,0 +1,13 @@
+source("Load_data.R")
+PowerS <- load_data()
+png("plot4.png", width=400, height=400)
+par(mfrow = c(2,2))
+plot(PowerS$Time, PowerS$Global_active_power, ylab="Global Active Power", xlab="", type ="l")
+plot(PowerS$Time,PowerS$Voltage,ylab="Voltage", xlab="datetime", type ="l")
+plot(PowerS$Time,PowerS$Sub_metering_1,ylab="Energy Sub Metering", xlab="", type ="l")
+lines(PowerS$Time,PowerS$Sub_metering_2,type ="l", col="red")
+lines(PowerS$Time,PowerS$Sub_metering_3,type ="l", col="blue")
+legend("topright", col = c("black", "red","blue"), c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), lty=1, lwd =2)
+plot(PowerS$Time, PowerS$Global_reactive_power, xlab="datetime", ylab="Global Reactive Power", type ="l")
+
+dev.off()
